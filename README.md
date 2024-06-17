@@ -4,4 +4,4 @@
 
 
 ###### Created using Vanilla Javascript, SQL and EJS
-###### preview: [not available](https://github.com/chris-lemos/Percursos/blob/main/Prototype%20PDF.pdf)
+###### preview: https://github.com/chris-lemos/Percursos/blob/main/Prototype%20PDF.pdf
