@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <title>Home</title>
+</head>
+<body >
+
+    <header class="header-main">
+        <p class="logo">Percurso</p>
+        <nav class="nav-header">
+          <ul class="ul-header">
+            <li class="li-header"><a href="/home">home</a></li>
+            <li class="li-header"><a href="/categorias">categorias</a></li>
+            <li class="li-header"><a href="/podcast">podcast</a></li>
+            <li class="li-header"><a href="/sobrenos">sobre nós</a></li>
+            
+          </ul>
+        </nav>
+        <div class="button-set">
+            <li class="li-header"><a href="/login">login</a></li>
+            <li class="li-header"><a href="/signup">sign up</a></li>
+         </div>
+      </header>
+
+      
+      <div style="display: flex; flex-direction: column; align-items: center; ">
+      <div class="sign-up">
+        <div class="sign-up-org">
+        <div class="sign-up-top">
+            <div class="sign-up-title"><h1>partilha um curso</h1> <hr></div>
+        <div class="sign-up-header">
+            
+            
+        </div>
+    </div>
+        <div >
+            <form class="share-form" action="<%=page%>" method="POST">
+                <div class="form-row-group">
+                    <div class="form-col">
+                            <label for="link">link:</label>
+                            <input placeholder='https://' type="url" id="link" name="link" style="width: 94%">
+                        </div>
+        
+                        <div class="form-col">
+                            <label for="title">titulo:</label>
+                            <input type="text" id="title" name="title" style="width: 94%">
+                        </div>
+
+                        <div class="form-col">
+                            <label for="description">descrição:</label>
+                            <input type="text" id="description" name="description" style="width: 94%">
+                        </div>
+                    </div> 
+                <div class="form-row-group">
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="price_now">preço atual:</label>
+                        <input type="number" id="price_now" name="price_now" step="any">
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="price_og">preço original:</label>
+                        <input type="number" id="price_og" name="price_og" step="any">
+                    </div>
+                    
+                </div>
+            
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="date_init">data inicio:</label>
+                        <input type="date" id="date_init" name="date_init">
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="date_end">data fim:</label>
+                        <input type="date" id="date_end" name="date_end">
+                    </div>
+                    
+                </div>
+                
+
+                <div class="form-col">
+                    <label for="category">categoria:</label>
+                    <select name="category" id="category" style="width: 48%">
+                        <% categories.forEach(function(category) { %>
+                          <option value="<%= category %>"><%= category %></option>
+                        <% }); %>
+                      </select>
+                </div>          
+            </div>
+
+               
+                
+                
+                
+                <div class="form-buttons">
+                    <input type="submit" value="partilhar" style="margin:8px">
+                    
+                </div>
+                
+              </form>
+              
+        </div>
+
+
+      </div>
+    </div>
+    </div>
+      
+     
+      
+    
+
+      
+</body>
+</html>

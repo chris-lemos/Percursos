@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <title>Home</title>
+</head>
+<body class="home-body">
+
+    <header class="header-main">
+        <p class="logo">Percurso</p>
+        <nav class="nav-header">
+          <ul class="ul-header">
+            <li id="li-active" class="li-header"><a href="/home">home</a></li>
+            <li class="li-header"><a href="/categorias">categorias</a></li>
+            <li class="li-header"><a href="/podcast">podcast</a></li>
+            <li class="li-header"><a href="/sobrenos">sobre nós</a></li>
+            
+          </ul>
+        </nav>
+        <div class="button-set">
+        <button class="share" onclick="location.href = '/partilhar'">compartilhar +</button>
+        <button class="avatar" onclick="location.href = '/user'"></button>
+         </div>
+      </header>
+      <div class="landscape">
+        <h1 class="main-head">Percurso</h1>
+      </div>
+      <div class="homepage-body">
+        <div class="body-elem">
+            <h2>Melhores Descontos</h2>
+            <div class="card-carousel">
+                <% for (let i = 0; i < 4; i++) { %>
+                    <a href="/curso/<%=coursesDiscount[i].cursos_id%>">
+                    <div class="card">
+                      <h3 class="card-title"><%= coursesDiscount[i].title %></h3>
+                      <div>
+                        <h6 class="card-caption"><%= coursesDiscount[i].link %></h6>
+                        <p class="card-body"><%= coursesDiscount[i].description %></p>
+                      </div>
+                      <div class="card-details">
+                        <p>Duration: <%= coursesDiscount[i].duration %>h</p>
+                        <p>Difficulty: <%= coursesDiscount[i].dificulty %></p>
+                        <p>Language: <%= coursesDiscount[i].lang %></p>
+                      </div>
+                      <div class="card-price">
+                        <h1><%= coursesDiscount[i].price_now %>$</h1>
+                        <div class="card-price-discount">
+                          <h4 class="card-price-discount-strike"><%= coursesDiscount[i].price_og %>$</h4>
+                          <h4 class="card-price-discount-percent"><%= coursesDiscount[i].discount %>%</h4>
+                        </div>
+                      </div>
+                      <div class="card-tags">
+                        <button class="card-tag"><%= coursesDiscount[i].category %></button>
+                        <h4><%= coursesDiscount[i].rating %>/5 ⭐ </h4>
+                      </div>
+                    </div>
+                </a>
+                  <% } %>
+                  
+                
+            </div>
+        </div>
+        
+        <div class="body-elem">
+            <h2>Melhores Ratings</h2>
+            <div class="card-carousel">
+              
+                <% for (let i = 0; i < 4; i++) { %>
+                  <a href="/curso/<%=coursesRating[i].cursos_id%>">
+                    <div class="card">
+                      <h3 class="card-title"><%= coursesRating[i].title %></h3>
+                      <div>
+                        <h6 class="card-caption"><%= coursesRating[i].link %></h6>
+                        <p class="card-body"><%= coursesRating[i].description %></p>
+                      </div>
+                      <div class="card-details">
+                        <p>Duration: <%= coursesRating[i].duration %>h</p>
+                        <p>Difficulty: <%= coursesRating[i].dificulty %></p>
+                        <p>Language: <%= coursesRating[i].lang %></p>
+                      </div>
+                      <div class="card-price">
+                        <h1><%= coursesRating[i].price_now %>$</h1>
+                        <div class="card-price-discount">
+                          <h4 class="card-price-discount-strike"><%= coursesRating[i].price_og %>$</h4>
+                          <h4 class="card-price-discount-percent"><%= coursesRating[i].discount %>%</h4>
+                        </div>
+                      </div>
+                      <div class="card-tags">
+                        <button class="card-tag"><%= coursesRating[i].category %></button>
+                        <h4><%= coursesRating[i].rating %>/5 ⭐ </h4>
+                      </div>
+                    </div>
+                  </a>
+                  <% } %>
+                
+            </div>
+        </div>
+        
+        <div class="body-elem">
+            <h2>Mais Recentes</h2>
+            <div class="card-carousel">
+              
+                <% for (let i = 0; i < 4; i++) { %>
+                  <a href="/curso/<%=coursesDate[i].cursos_id%>">
+                    <div class="card">
+                      <h3 class="card-title"><%= coursesDate[i].title %></h3>
+                      <div>
+                        <h6 class="card-caption"><%= coursesDate[i].link %></h6>
+                        <p class="card-body"><%= coursesDate[i].description %></p>
+                      </div>
+                      <div class="card-details">
+                        <p>Duration: <%= coursesDate[i].duration %>h</p>
+                        <p>Difficulty: <%= coursesDate[i].dificulty %></p>
+                        <p>Language: <%= coursesDate[i].lang %></p>
+                      </div>
+                      <div class="card-price">
+                        <h1><%= coursesDate[i].price_now %>$</h1>
+                        <div class="card-price-discount">
+                          <h4 class="card-price-discount-strike"><%= coursesDate[i].price_og %>$</h4>
+                          <h4 class="card-price-discount-percent"><%= coursesDate[i].discount %>%</h4>
+                        </div>
+                      </div>
+                      <div class="card-tags">
+                        <button class="card-tag"><%= coursesDate[i].category %></button>
+                        <h4><%= coursesDate[i].rating %>/5 ⭐ </h4>
+                      </div>
+                    </div>
+                  </a>
+                  <% } %>
+                
+            </div>
+        </div>
+
+       
+
+        </div>
+        <div class="mais-pop"></div>
+        <div class="mais-rec"></div>
+        <div class="categorias"></div>
+      </div>
+
+      
+
+      
+
+      <footer>
+        <div class="footer-info-cols">
+        
+            <div class="footer-info">
+            <p><strong>Informacao</strong></p>
+            <p>FAQ</p>
+            <p>Blog</p>
+            <p>Suporte</p>   
+            </div>
+          
+            <div class="footer-info">
+            <p><strong>Campanha</strong></p>
+            <p>Acerca</p>
+            <p>Carreiras</p>
+            <p>Contactos</p>
+            </div>
+    </div>
+        </div>
+        <hr>
+        <div class="footer-footer">
+          <p>Termos</p>
+          <p>Privacidade</p>
+          <p>Contactos</p>
+        </div>
+      </footer>
+    
+
+      
+</body>
+</html>

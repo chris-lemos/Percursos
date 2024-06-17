@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Home</title>
+</head>
+<body>
+    
+
+    <header class="header-main">
+        <p class="logo">Percurso</p>
+        <nav class="nav-header">
+          <ul class="ul-header">
+            <li class="li-header"><a href="/home">home</a></li>
+            <li class="li-header"><a href="/categorias">categorias</a></li>
+            <li class="li-header"><a href="/podcast">podcast</a></li>
+            <li class="li-header"><a href="/sobrenos">sobre nós</a></li>
+            
+          </ul>
+        </nav>
+        <div class="button-set">
+        <button class="share">compartilhar +</button>
+        <button onclick='window.location.href = "/user"' class="avatar"></button>
+         </div>
+      </header>
+
+      
+
+      <div class="curso-body">
+
+        <div class="curso-body-left" style="display: flex; flex-direction: column; gap: 24px; width: 40%">
+
+            <div class="curso-body-left-header" style="display: flex; flex-direction: column">
+                <h1><%=curso.title%></h1>
+                <div class="curso-body-info">
+                    <div class="user-info">
+                        <img class='curso-avatar'src="<%=curso.avatar%>">
+                        <div class="curso-body-info-user">
+                        
+                        <div class="small-cap">partilhado por</div>
+                        <p><%=curso.username%></p>  
+                    </div>
+                    
+                </div>
+                    <h3 class="curso-link"><%=curso.link%></h3>
+                    
+                    
+                    <div class="curso-body-stars"><p><%=curso.rating%>/5 <i class="fa-solid fa-star"></i></p> </div>
+                    <div class='icon' >
+                        <i id="myIcon" class="<%= favourited ? 'fa-solid fa-heart' : 'fa-regular fa-heart' %>"></i>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="curso-body-left-text" style="display: flex; flex-direction: column; gap: 8px">
+                <p class="curso-desc"><%=curso.description%></p>
+                <div class="curso-tags">
+                    <button class="card-tag"><%=curso.category%></button>
+                    
+                    
+                </div>
+            </div>
+
+            <div class="curso-body-left-bottom" style="display: flex; flex-direction: row; justify-content: space-between; gap: 24px; align-items: center;">
+                <div class="card-price">
+                    <h1><%=curso.price_now%>$</h1>
+                    
+                    <div class="card-price-discount">
+                        <h4 class="card-price-discount-strike"><%=curso.price_og%>$</h4>
+                        <h4 class="card-price-discount-percent"><%=curso.discount%>%</h4>
+                    </div>
+                </div>
+                <div class="curso-btns">
+                    <div class="curso-button">
+                        <button id='iniciar-curso' class="<%= initiated ? 'btn-toggle-active' : 'sec-btn' %>">
+                            <% if (initiated) { %>
+                                Curso Iniciado
+                            <% } else { %>
+                                Iniciar Curso
+                            <% } %>
+                        </button>
+                    </div>
+                    <div class="curso-button">
+                        <a href="https://www.udemy.com/course/complete-python-bootcamp/"><button id='redirect' class="primary-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i>ir para curso</button></a>
+                    </div>
+                    
+                </div>
+                
+            </div>
+
+        </div>
+
+        
+            
+            <img src="<%=cursoUrl%>" style="width:441px; object-fit: cover">
+        
+
+
+
+
+      </div>
+
+      <div class="homepage-body">
+        <div class="body-elem">
+            <h2>Cursos Parecidos</h2>
+            <div class="card-carousel">
+                <% for (let i = 0; i < Math.min(cursos.length, 4); i++) { %>
+                    <a href="/curso/<%=cursos[i].cursos_id%>">
+                    <div class="card">
+                      <h3 class="card-title"><%= cursos[i].title %></h3>
+                      <div>
+                        <h6 class="card-caption"><%= cursos[i].link %></h6>
+                        <p class="card-body"><%= cursos[i].description %></p>
+                      </div>
+                      <div class="card-details">
+                        <p>Duration: <%= cursos[i].duration %>h</p>
+                        <p>Difficulty: <%= cursos[i].dificulty %></p>
+                        <p>Language: <%= cursos[i].lang %></p>
+                      </div>
+                      <div class="card-price">
+                        <h1><%= cursos[i].price_now %>$</h1>
+                        <div class="card-price-discount">
+                          <h4 class="card-price-discount-strike"><%= cursos[i].price_og %>$</h4>
+                          <h4 class="card-price-discount-percent"><%= cursos[i].discount %>%</h4>
+                        </div>
+                      </div>
+                      <div class="card-tags">
+                        <button class="card-tag"><%= cursos[i].category %></button>
+                        <h4><%= cursos[i].rating %>/5 <i class="fa-solid fa-star"></i> </h4>
+                      </div>
+                    </div>
+                </a>
+                  <% } %>
+                  
+                
+            </div>
+        </div>
+        </div>
+        <div class="mais-pop"></div>
+        <div class="mais-rec"></div>
+        <div class="categorias"></div>
+      </div>
+      
+      <script>
+
+        window.addEventListener('DOMContentLoaded', async() => {
+            
+
+        })
+
+        
+
+       
+
+let icon = document.getElementById('myIcon');
+let clicked = false;
+icon.addEventListener('click', () => {
+    if(clicked) {
+        icon.classList.remove('fa-regular');
+        icon.classList.add('fa-solid');
+        clicked = false;
+    }else {
+        
+        icon.classList.remove('fa-solid');
+        icon.classList.add('fa-regular');
+        clicked = true;
+    }
+});
+
+let iniciarCurso = document.getElementById('iniciar-curso');
+let isClicked = false;
+iniciarCurso.addEventListener('click', () => {
+    if(isClicked) {
+        iniciarCurso.innerHTML = 'iniciar curso';
+        iniciarCurso.classList.remove('btn-toggle-active');
+        iniciarCurso.classList.add('sec-btn');
+        isClicked = false;
+    }else {
+        iniciarCurso.innerHTML = 'curso iniciado';
+        iniciarCurso.classList.remove('sec-btn');
+        iniciarCurso.classList.add('btn-toggle-active');
+        isClicked = true;
+    }
+});
+
+
+window.addEventListener('beforeunload', async(event) => {
+    let courseInit = document.getElementById('iniciar-curso')
+    let courseFav = document.getElementById('myIcon')
+    let courseId = '<%=curso.cursos_id%>'
+    let userId = '<%=myUserId%>'
+    let initiated = false;
+    let favourited = false;
+
+    if (courseInit.classList.contains('btn-toggle-active')) {
+        initiated = true;
+    }
+    
+    if (courseFav.classList.contains('fa-solid')){
+        favourited = true;
+    }
+
+    const response = await fetch(`/check-entry/${userId}/${courseId}`);
+    const data = await response.text();
+    if (data === 'true') {
+        const updateResponse = await fetch('/update-entry', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({userId, courseId, initiated, favourited})
+    });
+    console.log('users entry updated successfully')
+        
+    } else {
+        const addResponse = await fetch('/add-entry', 
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({userId, courseId, initiated, favourited})
+
+        });
+        console.log('New entry added for the user successfully')
+    }
+    
+    
+
+
+
+})
+
+
+      </script>
+      
+      
+
+      
+
+      <footer>
+        <div class="footer-info-cols">
+        
+            <div class="footer-info">
+            <p><strong>Informacao</strong></p>
+            <p>FAQ</p>
+            <p>Blog</p>
+            <p>Suporte</p>   
+            </div>
+          
+            <div class="footer-info">
+            <p><strong>Campanha</strong></p>
+            <p>Acerca</p>
+            <p>Carreiras</p>
+            <p>Contactos</p>
+            </div>
+    </div>
+        </div>
+        <hr>
+        <div class="footer-footer">
+          <p>Termos</p>
+          <p>Privacidade</p>
+          <p>Contactos</p>
+        </div>
+      </footer>
+    
+
+      
+</body>
+</html>

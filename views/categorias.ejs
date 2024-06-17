@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <title>Home</title>
+</head>
+<body>
+
+    <header class="header-main">
+        <p class="logo">Percurso</p>
+        <nav class="nav-header">
+          <ul class="ul-header">
+            <li class="li-header"><a href="/home">home</a></li>
+            <li id="li-active" class="li-header"><a href="/categorias">categorias</a></li>
+            <li class="li-header"><a href="/podcast">podcast</a></li>
+            <li class="li-header"><a href="/sobrenos">sobre nós</a></li>
+            
+          </ul>
+        </nav>
+        <div class="button-set">
+        <button class="share">compartilhar +</button>
+        <button onclick='window.location.href = "/user"' class="avatar"></button>
+         </div>
+      </header>
+      
+      <div class="homepage-body">
+        
+        <div class="body-elem">
+            <div class="homepage-body-header">
+            <h1>Categorias</h1>
+            
+        </div>
+        <div class="grid">
+          <% categories.forEach((category) => { %>
+            <% console.log(category.category_name) %> 
+            <a href="/categorias/<%=category.category_name%>">
+              <div class="category-tile">
+                <img src="/assets/images/Categorias/<%=category.category_name%>.png" alt="<%= category.category_name %>">
+              </div>
+            </a>
+          <% }); %>
+        </div>
+    </div>
+      </div>
+
+      
+
+      <footer>
+        <div class="footer-info-cols">
+        
+            <div class="footer-info">
+            <p><strong>Informacao</strong></p>
+            <p>FAQ</p>
+            <p>Blog</p>
+            <p>Suporte</p>   
+            </div>
+          
+            <div class="footer-info">
+            <p><strong>Campanha</strong></p>
+            <p>Acerca</p>
+            <p>Carreiras</p>
+            <p>Contactos</p>
+            </div>
+    </div>
+        </div>
+        <hr>
+        <div class="footer-footer">
+          <p>Termos</p>
+          <p>Privacidade</p>
+          <p>Contactos</p>
+        </div>
+      </footer>
+    
+
+      
+</body>
+</html>

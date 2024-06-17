@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <title>Home</title>
+</head>
+<body>
+
+    <header class="header-main">
+        <p class="logo">Percurso</p>
+        <nav class="nav-header">
+          <ul class="ul-header">
+            <li class="li-header"><a href="/home">home</a></li>
+            <li class="li-header"><a href="/categorias">categorias</a></li>
+            <li class="li-header"><a href="/podcast">podcast</a></li>
+            <li class="li-header"><a href="/sobrenos">sobre nós</a></li>
+            
+          </ul>
+        </nav>
+        <div class="button-set">
+        <button class="share">compartilhar +</button>
+        <button onclick='window.location.href = "/user"' class="avatar"></button>
+         </div>
+      </header>
+      
+      <div class="sidebar">
+        <div class="sidebar-img">
+            <img src="assets/images/user.png">
+            <h1><%=name%></h1>
+            <h4>@<%=user%></h4>
+        </div>
+        <div class="sidebar-info">
+           <h3><%=dob%></h3>
+           <h3><%=loc%></h3>
+           <h3><%=edu%></h3>
+           <h3><%=web%></h3>
+
+
+        </div>
+
+        <div class="sidebar-info-button">
+            <div class="sidebar-info-button-elem">
+                <h1><%=init.length%></h1>
+                <h3>inciados</h3>
+            </div>
+            <div class="sidebar-info-button-elem">
+                <h1>0</h1>
+                <h3>terminados</h3>
+            </div>
+            <div class="sidebar-info-button-elem">
+                <h1><%=fav.length%></h1>
+                <h3>favoritos</h3>
+            </div>
+        </div>
+
+      </div>
+      <div class="user-main-content">
+        <div class="user-head">
+            <a href="/user">todos</a>
+            <a href="/fav">favoritos</a>
+            <a id='a-active'href="/init">iniciados</a>
+            <a href="/term">terminados</a>
+        </div>
+        
+        <div id='cards-init'class="card-compact-group">
+            <% for (let i = 0; i < init.length; i++) { %>
+                <a href="/curso/<%=init[i].cursos_id%>">
+                <div class="card-compact">
+                    <h1><%=init[i].title%></h1>
+                    <h3><%=init[i].link%></h3>
+                </div>
+            </a>
+                
+                <% } %>       
+        </div>
+        
+
+      </div>
+
+      
+    
+
+      
+</body>
+</html>
